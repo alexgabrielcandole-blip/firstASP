@@ -1,0 +1,33 @@
+@model List<firstASP.Models.Product>
+
+@{ ViewData["Title"] = "Products"; }
+
+ 
+
+<h1>Products</h1>
+
+<a asp-action="Create" class="btn btn-primary mb-3">+ Add Product</a>
+
+ 
+
+<table class="table table-bordered">
+
+    <thead>
+
+        <tr><th>Id</th><th>Name</th><th>Price</th></tr>
+
+    </thead>
+
+    <tbody>
+
+        @foreach (var p in Model)
+
+        {
+
+            <tr><td>@p.Id</td><td>@p.Name</td><td>@p.Price</td></tr>
+
+        }
+
+    </tbody>
+
+</table>
