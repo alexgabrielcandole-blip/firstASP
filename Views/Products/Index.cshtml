@@ -2,18 +2,23 @@
 
 @{ ViewData["Title"] = "Products"; }
 
- 
 
 <h1>Products</h1>
 
 <a asp-action="Create" class="btn btn-primary mb-3">+ Add Product</a>
 
- 
 
 <table class="table table-bordered">
 
     <thead>
-        <tr><th>Id</th><th>Name</th><th>Price</th><th>Actions</th></tr>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Unit Measure</th>
+            <th>Price</th>
+            <th>Actions</th>
+        </tr>
     </thead>
 
     <tbody>
@@ -23,6 +28,8 @@
             <tr>
                 <td>@p.Id</td>
                 <td>@p.Name</td>
+                <td>@p.Description</td>
+                <td>@p.UnitMeasure</td>
                 <td>@p.Price</td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@p.Id" class="btn btn-sm btn-warning">Edit</a>
@@ -33,6 +40,6 @@
         }
 
     </tbody>
-    
+
 </table>
 

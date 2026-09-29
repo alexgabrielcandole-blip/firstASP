@@ -2,7 +2,6 @@
 
 @{ ViewData["Title"] = "Add Product"; }
 
- 
 
 <h1>Add Product</h1>
 
@@ -15,7 +14,14 @@
         <input asp-for="Name" class="form-control" />
 
     </div>
-
+    <div class="mb-3">
+        <label>Description</label>
+        <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+    </div>
+    <div class="mb-3">
+        <label>Unit Measure</label>
+        <input asp-for="UnitMeasure" class="form-control" placeholder="e.g. pcs, kg, box" />
+    </div>
     <div class="mb-3">
 
         <label>Price</label>
@@ -25,7 +31,7 @@
     </div>
 
     <button type="submit" class="btn btn-primary">Save</button>
-
+    
     <a asp-action="Index" class="btn btn-secondary">Back</a>
 
 </form>
