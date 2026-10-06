@@ -15,7 +15,7 @@ namespace firstASP.Controllers
             var products = _db.Products.AsQueryable();
             if (!string.IsNullOrEmpty(searchString))
             {
-                products = products.Where(p => p.Name.ToLower().Contains(searchString.ToLower()));
+                products = products.Where(p => p.Description.ToLower().Contains(searchString.ToLower()));
             }
             ViewData["searchString"] = searchString;
             return View(products.ToList());
