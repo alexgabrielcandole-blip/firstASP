@@ -9,11 +9,16 @@ namespace firstASP.Controllers
         private readonly ApplicationDbContext _db;
         public CustomersController(ApplicationDbContext db) { _db = db; }
 
-        // shows the list
-        public IActionResult Index()
+        // shows the list (with search)
+        public IActionResult Index(string searchString)
         {
-            var customers = _db.Customers.ToList();
-            return View(customers);
+            var customers = _db.Customers.AsQueryable();
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                customers = customers.Where(c => c.CustomerName.ToLower().Contains(searchString.ToLower()));
+            }
+            ViewData["searchString"] = searchString;
+            return View(customers.ToList());
         }
 
         // shows the empty add-form
